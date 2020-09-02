@@ -1,3 +1,4 @@
+require 'pry'
 class Shopper
 
   attr_reader :name, :wallet
@@ -23,8 +24,22 @@ class Shopper
   #   return items
   # end
 
-  def total_spent
-    
+  def cart_item #anney.single_item ==== giftcard, wine etc
+    cart = []
+    Transaction.all.find_all do |single_transaction| 
+      # binding.pry
+      if single_transaction.name.name == self.name
+        cart << single_transaction.item_name
+        # binding.pry
+      end
+    end
+    cart
+  end
+
+  def cart_total #total amount the shopper spent #anney.cart_total ===== 
+    # go thru all instances of transactions,
+    #  does SELF.name knows it's transactions?
+    # if it does, 
   end
 
   def self.exceeded_budget
@@ -33,4 +48,4 @@ class Shopper
   def self.remaining_amount
   end
 
-end
+end0

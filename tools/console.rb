@@ -1,7 +1,7 @@
 require 'pry'
-require_relative './shopper'
-require_relative './targetitem'
-require_relative './transaction'
+require_relative '../apps/shopper'
+require_relative '../apps/targetitem'
+require_relative '../apps/transaction'
 
 
 anney = Shopper.new("Anney", 175)
@@ -65,9 +65,13 @@ Transaction.new(matteo, beer)
 # puts tv.over_100?
 # puts TargetItem.search_by_name("Candle")
 
-# puts TargetItem.search_by_name("White")
+# results = TargetItem.search_by_name("White")
+# print results
 
-puts "Does the shopper know what they purchased?"
-puts anney.items_purchased
+# puts "Does the shopper know what they purchased?"
+# puts anney.items_purchased
 
+puts "Does Anney know cart item?"
+result = anney.cart_item
+print result
 # binding.pry

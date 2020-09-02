@@ -34,12 +34,7 @@ class TargetItem
   end
 
   def self.search_by_name(brand) # WHY ISN'T THIS AN ARRAY!!!!!!! :( 
-    results_array = []
-    # binding.pry
-    results = self.all.find_all do |item| 
-      item.item_name.include?(brand)
-    end
-    results_array << results.map {|item| item.item_name}
+    self.all.select {|item|item.item_name.include?(brand)}.map {|another_item| another_item.item_name}
   end
 
 end
